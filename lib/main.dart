@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:meuappflutter/my_flutter_app_icons.dart';
 
 void main() {
@@ -9,7 +8,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -33,12 +31,31 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  Widget buildButton(String label) {
+    return Container(
+      width: 300.0,
+      margin: const EdgeInsets.symmetric(vertical: 8.0), // Espaçamento entre os botões
+      child: ElevatedButton(
+        onPressed: () {
+          
+        },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.red,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.zero, // Bordas quadradas
+          ),
+        ),
+        child: Text(
+          label,
+          style: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+          ),
+        ),
+      ),
+    );
   }
 
   @override
@@ -56,15 +73,14 @@ class _MyHomePageState extends State<MyHomePage> {
               const SizedBox(width: 8),
               const Icon(MyFlutterApp.hearts_card, color: Colors.white),
               const SizedBox(width: 8),
-                Text(
-                  widget.title,
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'Arial',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16
-                      ),
-                ),
+              Text(
+                widget.title,
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'Arial',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16),
+              ),
               const SizedBox(width: 8),
               const Icon(MyFlutterApp.spades_card, color: Colors.white),
               const SizedBox(width: 8),
@@ -76,22 +92,21 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+          children: <Widget>[            
+            buildButton('CARTA ALTA'),
+            buildButton('PAR'),
+            buildButton('DOIS PARES'),
+            buildButton('TRINCA'),
+            buildButton('STRAIGHT'),
+            buildButton('FLUSH'),
+            buildButton('FULL HOUSE'),
+            buildButton('FOUR OF A KIND'),
+            buildButton('STRAIGHT FLUSH'),
+            buildButton('ROYAL FLUSH'),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), 
+      backgroundColor: Colors.grey.shade900,
     );
   }
 }
