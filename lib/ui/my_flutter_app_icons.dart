@@ -17,7 +17,6 @@
 ///         License:   SIL (http://scripts.sil.org/OFL)
 ///         Homepage:  http://nagoshiashumari.github.io/Rpg-Awesome/
 ///
-library;
 import 'package:flutter/widgets.dart';
 
 class MyFlutterApp {
