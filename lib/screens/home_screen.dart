@@ -44,23 +44,24 @@ class HomeScreen extends StatelessWidget {
         title: const Align(
           alignment: Alignment.center,
           child: Row(
-            mainAxisSize: MainAxisSize.min,
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Icon(MyFlutterApp.clovers_card, color: Colors.white),
-              SizedBox(width: 8),
               Icon(MyFlutterApp.hearts_card, color: Colors.white),
-              SizedBox(width: 8),
-              Text(
-                "RANKING DE MÃOS NO POKER",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: 'Arial',
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16),
+              Expanded(
+                child: Text(
+                  "RANKING DE MÃOS NO POKER",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Arial',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16),
+                ),
               ),
-              SizedBox(width: 8),
               Icon(MyFlutterApp.spades_card, color: Colors.white),
-              SizedBox(width: 8),
+             
               Icon(MyFlutterApp.diamonds_card, color: Colors.white),
             ],
           ),
