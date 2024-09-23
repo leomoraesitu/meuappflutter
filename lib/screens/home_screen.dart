@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor:
-            Theme.of(context).colorScheme.secondary.withOpacity(0.7),
+            Theme.of(context).colorScheme.secondary.withOpacity(0.2),
         title: const Align(
           alignment: Alignment.center,
           child: Row(
@@ -52,96 +52,85 @@ class HomeScreen extends StatelessWidget {
           children: <Widget>[
             GameButtonWidget(
               label: 'CARTA ALTA',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const CartaAltaScreen()),
-                );
-              },
+              onPressed: () => chamadaTelas(
+                context,
+                const CartaAltaScreen(),
+              ),
             ),
             GameButtonWidget(
               label: 'PAR',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ParScreen()),
-                );
-              },
+               onPressed: () => chamadaTelas(
+                context,
+                const ParScreen(),
+              ),
             ),
             GameButtonWidget(
               label: 'DOIS PARES',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const DoisParesScreen()),
-                );
-              },
-            ),            
+              onPressed: () => chamadaTelas(
+                context,
+                const DoisParesScreen(),
+              ),
+            ),
             GameButtonWidget(
               label: 'TRINCA',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const TrincaScreen()),
-                );
-              },
-            ),            
+               onPressed: () => chamadaTelas(
+                context,
+                const TrincaScreen(),
+              ),
+            ),
             GameButtonWidget(
               label: 'SEQUÊNCIA',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const StraightScreen()),
-                );
-              },
-            ),            
+              onPressed: () => chamadaTelas(
+                context,
+                const StraightScreen(),
+              ),
+            ),
             GameButtonWidget(
               label: 'FLUSH',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const FlushScreen()),
-                );
-              },
+               onPressed: () => chamadaTelas(
+                context,
+                const FlushScreen(),
+              ),
             ),
             GameButtonWidget(
               label: 'FULL HOUSE',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const FullHouseScreen()),
-                );
-              },
+               onPressed: () => chamadaTelas(
+                context,
+                const FullHouseScreen(),
+              ),
             ),
             GameButtonWidget(
               label: 'QUADRA',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const QuadraScreen()),
-                );
-              },
+              onPressed: () => chamadaTelas(
+                context,
+                const QuadraScreen(),
+              ),
             ),
             GameButtonWidget(
               label: 'STRAIGHT FLUSH',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const StraightFlushScreen()),
-                );
-              },
+               onPressed: () => chamadaTelas(
+                context,
+                const StraightFlushScreen(),
+              ),
             ),
             GameButtonWidget(
               label: 'ROYAL FLUSH',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const RoyalFlushScreen()),
-                );
-              },
+              onPressed: () => chamadaTelas(
+                context,
+                const RoyalFlushScreen(),
+              ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  void chamadaTelas(BuildContext context, Widget tela) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => tela,
       ),
     );
   }
