@@ -1,8 +1,10 @@
+
 import 'package:flutter/material.dart';
 
 class GameButtonWidget extends StatelessWidget {
   final String label;
-  const GameButtonWidget({super.key, required this.label});
+  final VoidCallback? onPressed;
+  const GameButtonWidget({required this.label, this.onPressed, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +14,7 @@ class GameButtonWidget extends StatelessWidget {
         vertical: 8.0,
       ),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.red,
           shape: const RoundedRectangleBorder(
