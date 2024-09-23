@@ -13,7 +13,27 @@ import 'package:meuappflutter/screens/par_screen.dart';
 import 'package:meuappflutter/screens/dois_pares_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+
+  final buttons = <String, Widget>{
+    'CARTA ALTA': const CartaAltaScreen(),
+    'PAR': const ParScreen(),
+    'DOIS PARES': const DoisParesScreen(),
+    'TRINCA': const TrincaScreen(),
+    'SEQUENCIA': const StraightScreen(),
+    'FLUSH': const FlushScreen(),
+    'FULL HOUSE': const FullHouseScreen(),
+    'QUADRA': const QuadraScreen(),
+    'STRAIGHT FLUSH': const StraightFlushScreen(),
+    'ROYAL FLUSH': const RoyalFlushScreen(),
+  };
+
+  void goToScreen({required BuildContext context, required Widget screen}) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => screen),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,98 +69,15 @@ class HomeScreen extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            GameButtonWidget(
-              label: 'CARTA ALTA',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const CartaAltaScreen()),
-                );
-              },
-            ),
-            GameButtonWidget(
-              label: 'PAR',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ParScreen()),
-                );
-              },
-            ),
-            GameButtonWidget(
-              label: 'DOIS PARES',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const DoisParesScreen()),
-                );
-              },
-            ),            
-            GameButtonWidget(
-              label: 'TRINCA',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const TrincaScreen()),
-                );
-              },
-            ),            
-            GameButtonWidget(
-              label: 'SEQUÊNCIA',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const StraightScreen()),
-                );
-              },
-            ),            
-            GameButtonWidget(
-              label: 'FLUSH',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const FlushScreen()),
-                );
-              },
-            ),
-            GameButtonWidget(
-              label: 'FULL HOUSE',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const FullHouseScreen()),
-                );
-              },
-            ),
-            GameButtonWidget(
-              label: 'QUADRA',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const QuadraScreen()),
-                );
-              },
-            ),
-            GameButtonWidget(
-              label: 'STRAIGHT FLUSH',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const StraightFlushScreen()),
-                );
-              },
-            ),
-            GameButtonWidget(
-              label: 'ROYAL FLUSH',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const RoyalFlushScreen()),
-                );
-              },
-            ),
-          ],
+          children: buttons.keys
+              .map(
+                (label) => GameButtonWidget(
+                  label: label,
+                  onPressed: () =>
+                      goToScreen(context: context, screen: buttons[label]!),
+                ),
+              )
+              .toList(),
         ),
       ),
     );

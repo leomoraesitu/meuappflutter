@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Contador Poker',
       theme: AppTheme.theme,
-      home: const HomeScreen(),
+      home: HomeScreen(),
     );
   }
 }
