@@ -9,7 +9,7 @@ class QuadraScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor:
-            Theme.of(context).colorScheme.secondary.withOpacity(0.7),
+            Theme.of(context).colorScheme.secondary.withOpacity(0.2),
         title: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[

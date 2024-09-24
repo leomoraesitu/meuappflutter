@@ -6,5 +6,6 @@ class AppTheme {
     colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
     scaffoldBackgroundColor: AppColors.backGroundColor,
     useMaterial3: true,
+    appBarTheme: AppBarTheme(iconTheme: IconThemeData(color: Colors.white))
   );
 }
